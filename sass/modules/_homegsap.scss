@@ -26,7 +26,10 @@
 .intro-text{
     color: rgb(233, 233, 233);
     font-family: "Heebo", sans-serif;
-    font-size: 3rem;
+    span{
+        font-size: 3rem;
+        font-weight: 600;
+    }
 }
 
 // Hide Text

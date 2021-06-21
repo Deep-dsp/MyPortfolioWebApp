@@ -1,0 +1,31 @@
+#about-section{
+    margin: 3em 0;
+    font-family: 'Poppins', sans-serif;
+
+    .about-title{
+        font-size: 2rem;
+        font-weight: 600;
+        color: lightgray;
+        // opacity: 0;
+    }
+
+    .about-para p{
+        font-size: 0.85rem;
+        margin-top: 2em;
+        line-height: 2;
+    }
+}
+
+// Media Queries
+@media screen and (min-width: 768px){
+    #about-section{
+        .about-title{
+            font-size: 3rem;
+        }
+    
+        .about-para p{
+            font-size: 1rem;
+            margin-top: 0;
+        }
+    }
+}

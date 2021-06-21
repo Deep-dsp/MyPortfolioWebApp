@@ -1,0 +1,52 @@
+#portfolio-section{
+    margin: 3em 0;
+    position: relative;
+    .port-title{
+        p{
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 0.5;
+            color: lightgray;
+        }
+    }
+
+    .card{
+        margin: 2em 0;
+
+        i{
+            font-size: 1.5rem;
+        }
+    
+        i:hover{
+            color: orange;
+        }
+
+        span{
+            color: #434343;
+            font-weight: 500;
+            letter-spacing: 0.5;
+        }
+    }
+}
+
+// Media queries
+@media screen and (min-width: 768px){
+
+    #portfolio-section{
+        margin: 3em 0;
+    
+        .port-title{
+            p{
+                font-size: 3.5rem;
+            }
+        }
+
+        .card{
+            font-family: 'Poppins', sans-serif;
+            img{
+                width: 350px;
+                height:auto;
+            }
+        }
+    }
+}

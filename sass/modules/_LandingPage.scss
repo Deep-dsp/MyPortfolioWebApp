@@ -1,0 +1,52 @@
+#landingPage{
+    background: url('/images/background.jpg') no-repeat;
+    background-size: cover;
+}
+
+.name-wrapper{
+    height: 90vh;
+    position: relative;
+    
+    .name-block{
+        
+        p.title-name{
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        p.my-name{
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .position-con{
+
+            span{
+                font-size: 1.325rem;
+            }
+
+            .position, .cursor{
+                color: orange;
+            }
+        }
+
+    }
+}
+
+//Media Queries 
+@media screen and (min-width: 550px){
+    .name-wrapper{
+        .name-block{
+            p.my-name{
+                font-size: 3.5rem;
+            }
+
+            .position-con{
+
+                span{
+                    font-size: 1.625rem;
+                }
+            }
+        }
+    }
+}

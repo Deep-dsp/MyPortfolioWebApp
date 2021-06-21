@@ -1,80 +1,16 @@
-(()=>{
+const position = ["Front End Web Developer", "Media Designer", "3D Artist"];
 
-    const typeWriter = function(txtElement, words, wait = 3000){
+let cursor = gsap.to('.position-con .cursor', {
+    opacity:0,
+    ease: "power2.inOut",
+    repeat: -1
+});
 
-        this.txtElement = txtElement;
-        this.words = words;
-        this.txt = '';
-        this.wordIndex = 0;
-        this.wait = parseInt(wait, 10);
-        this.type();
-        this.isDeleting = false;
+let masterTl = gsap.timeline( {repeat: -1} );
 
-    }
+position.forEach( word => {
 
-    // Type Method
-
-    typeWriter.prototype.type = function(){
-
-        // current index
-        const index = this.wordIndex % this.words.length;
-        console.log(this.wordIndex);
-        console.log(this.words.length);
-
-        //  get text of current index
-        const fullText = this.words[index];
-
-        // type speed
-        let typeSpeed = 2000; // initial 
-
-        // check if deleting
-        if(this.isDeleting){
-            // remove Characters
-            typeSpeed /= 2;
-            this.txt = fullText.substring(0, this.txt.length - 1);
-        }
-        else{
-            // add Character
-            this.txt = fullText.substring(0, this.txt.length +  1);
-        }
-
-        // insert txt into element
-        this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
-
-        // check word is complete or not -> must be matched 
-        if(!this.isDeleting && this.txt == fullText){
-            // make Pause at end
-            typeSpeed = this.wait;
-            this.isDeleting = true;
-        }else if(this.isDeleting && this.txt == ''){
-            this.isDeleting = false;
-            // move to next word
-            this.wordIndex++;
-            // Pause before start typing
-            typeSpeed = 500;
-        }
-
-
-        setTimeout(() => this.type(), 300);
-        console.log(fullText);
-
-    }
-
-    // InitonDOMLoad
-
-    document.addEventListener('DOMContentLoaded', init);
-
-    // Init App
-    function init(){
-
-        const txtElement = document.querySelector('.txt-type');
-        const words = JSON.parse(txtElement.getAttribute('data-words'));
-        const wait = txtElement.getAttribute('data-wait');
-
-        // init typeWriter
-        new typeWriter(txtElement, words, wait);
-
-    }
-
-
-})();
+    let tl = gsap.timeline({ repeat:1, yoyo: true, repeatDelay: 1});
+    tl.to('.position',{ duration: 1, text: word});
+    masterTl.add(tl);
+});
